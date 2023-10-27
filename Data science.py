@@ -13,3 +13,8 @@ model.fit(X_train, y_train)
 joblib.dump(model, 'accident_severity_model.joblib')
 accuracy = model.score(X_test, y_test)
 print(f'Model Accuracy: {accuracy * 100:.2f}%')
+# Example of using the model for prediction
+new_data = [[2, 50, 60, 2, 1]]  # Wet road, visibility of 50 meters, speed limit of 60 km/h, 2 vehicles, daytime
+predicted_severity = model.predict(new_data)
+
+print(f'Predicted Accident Severity: {predicted_severity[0]:.2f}')
